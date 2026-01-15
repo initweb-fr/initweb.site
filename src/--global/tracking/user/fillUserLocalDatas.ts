@@ -1,4 +1,4 @@
-import { getCookie } from '../../cookieUtilities';
+import { getCookie } from '../../../utils/cookieUtilities';
 
 export function fillUserLocalDatas() {
   document.querySelectorAll('input[iw-formdata]').forEach((input) => {

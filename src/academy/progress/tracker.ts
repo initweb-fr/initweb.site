@@ -20,7 +20,6 @@
 // - utils.ts : Pour changer l'apparence des éléments
 // ===============================
 
-import { getMemberDatas } from '../members/data';
 import {
   getCompletedLessonsList,
   getProgressStats,
@@ -41,15 +40,20 @@ import {
 // DÉMARRAGE DU SYSTÈME
 // ===============================
 
+type Member = {
+  id?: string;
+  memberJSON?: Record<string, unknown>;
+  memberDATAS?: { customFields?: Record<string, string> };
+};
+
 /**
  * Démarre le système de progression
  * Appelé au chargement de la page
  */
-export async function initProgressTracking() {
+export async function initProgressTracking(member: Member) {
   try {
     // 1. Récupérer les infos du membre connecté
-    const member = await getMemberDatas();
-    const memberMSID = member?.memberDATAS?.id;
+    const memberMSID = member?.id;
     if (!memberMSID) {
       console.log('❌ Aucun membre MS connecté');
       return;
@@ -73,7 +77,7 @@ export async function initProgressTracking() {
     logProgress(stats);
 
     // 4. Installer les listeners sur les éléments interactifs
-    setupClickListeners(memberMSID, handleClick);
+    setupClickListeners(memberMSID, (element) => handleClick(element, member));
     console.log('✅ Système de progression démarré');
   } catch (error) {
     console.error('❌ Erreur au démarrage:', error);
@@ -89,7 +93,7 @@ export async function initProgressTracking() {
  * @param element - L'élément cliqué (bouton ou checkbox)
  * @param memberId - L'ID du membre connecté
  */
-async function handleClick(element: Element) {
+async function handleClick(element: Element, member: Member) {
   // Récupérer les infos de la leçon
   const lessonATID = element.getAttribute('iw-progress-target-atid') || '';
   const lessonIWID = element.getAttribute('iw-progress-target-iwid') || '';
@@ -106,7 +110,6 @@ async function handleClick(element: Element) {
     updateLessonState(lessonATID, isCompleted);
 
     // 1. Lire le JSON complet depuis Memberstack
-    const member = await getMemberDatas();
     const memberJSON = member?.memberJSON || {};
     const memberATID = member?.memberDATAS?.customFields?.['member-atid'] || '';
 

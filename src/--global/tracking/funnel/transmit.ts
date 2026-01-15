@@ -5,7 +5,7 @@
  * Gère les formulaires, navigation et paramètres UTM.
  */
 
-import { getFunnelDatas } from './getFunnelDatas';
+import { getFunnelDatas } from './data';
 
 // --------- Fonctions gérant le tracking depuis Site vers Academy
 

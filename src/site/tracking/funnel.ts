@@ -1,4 +1,4 @@
-import { saveFunnelDatas } from '$utils/--global/tracking/funnel/saveFunnelDatas';
+/*import { saveFunnelDatas } from '$utils/--global/tracking/funnel/saveFunnelDatas';
 import {
   transmitFunnelDatasToURL,
   transmitPlanPriceToURL,
@@ -18,3 +18,4 @@ export function initTransmitFunnelDatas() {
     transmitPlanPriceToURL(ctaLinks);
   }
 }
+*/

@@ -1,10 +1,8 @@
-import { getCookie, setCookie } from '$utils/--global/cookieUtilities';
+/*import { getCookie, setCookie } from '$utils/--global/cookieUtilities';
 import { getFunnelDatas } from '$utils/--global/tracking/funnel/getFunnelDatas';
-import { getMemberDatas } from '$utils/academy/members/data';
+import { getMemberDatas } from 'src/academy/members/data';
 
-/**
- * Envoie les données du funnel via webhook
- */
+
 export async function sendFunnelDatasToWebhook(): Promise<void> {
   //Récupération des données du funnel
   const webhookUrl = 'https://hook.eu1.make.com/jwy2aodfw6bybp7gribq53rpqjwpfyuu';
@@ -68,3 +66,4 @@ export async function sendFunnelDatasToWebhook(): Promise<void> {
     throw error;
   }
 }
+*/
