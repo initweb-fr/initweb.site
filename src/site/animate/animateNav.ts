@@ -19,14 +19,19 @@ export function animateNavOnResponsive() {
   handleResize(); // Appel initial de la fonction de redimensionnement
   window.addEventListener('resize', handleResize); // Ajout d'un écouteur d'événement pour le redimensionnement de la fenêtre
 }
+
 function openNavOnMobile() {
   // Sélection du NavWrapper
   const navWrapper = document.querySelector('[iw-nav-element="nav"]') as HTMLElement;
   if (!navWrapper) return;
   //Sélection des éléments
-  const navMenu = navWrapper.querySelector('[iw-nav-element="nav-menu"]') as HTMLElement;
-  const navMobileOpen = navWrapper.querySelector('[iw-nav-element="button-open"]') as HTMLElement;
-  const navMobileClose = navWrapper.querySelector('[iw-nav-element="button-close"]') as HTMLElement;
+  const navMenu = navWrapper.querySelector('[data-iw-nav-element="nav-menu"]') as HTMLElement;
+  const navMobileOpen = navWrapper.querySelector(
+    '[data-iw-nav-element="button-open"]'
+  ) as HTMLElement;
+  const navMobileClose = navWrapper.querySelector(
+    '[data-iw-nav-element="button-close"]'
+  ) as HTMLElement;
   if (!navMobileOpen || !navMobileClose || !navMenu) return;
   // Initialisation
   navMobileOpen.style.display = 'flex';
@@ -70,7 +75,7 @@ export function animateNavDropDownOnResponsive() {
     const navDropdownCloseBtn = navDropdown.querySelector('.nav_dd_back_button');
     const navDropdownToggle = navDropdown.querySelector('.nav_dd_button');
     // const navDropdownPanel = navDropdown.querySelector('.nav_dd_panel');
-    console.log(navDropdownCloseBtn);
+    //console.log(navDropdownCloseBtn);
     if (navDropdownCloseBtn && navDropdown) {
       navDropdownCloseBtn.addEventListener('click', function () {
         console.log('clic');
