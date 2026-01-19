@@ -22,7 +22,7 @@ export function animateNavOnResponsive() {
 
 function openNavOnMobile() {
   // Sélection du NavWrapper
-  const navWrapper = document.querySelector('[iw-nav-element="nav"]') as HTMLElement;
+  const navWrapper = document.querySelector('[data-iw-nav-element="nav"]') as HTMLElement;
   if (!navWrapper) return;
   //Sélection des éléments
   const navMenu = navWrapper.querySelector('[data-iw-nav-element="nav-menu"]') as HTMLElement;

@@ -1,14 +1,14 @@
 //import { initFunnelDatas, initTransmitFunnelDatas } from 'src/site/tracking/funnel';
 import { getMemberDatas, getMemberJSON } from 'src/--global/auth/data';
-import { initBunnyPlayer } from 'src/--global/video/video';
+import { initBunnyPlayerBackground } from 'src/--global/video/backgroundVideo';
+import { initBunnyPlayer } from 'src/--global/video/siteVideo';
 import { animateFormLabels } from 'src/site/animate/animateForm';
+import { animateSliderC1OnResponsive } from 'src/site/animate/animatePossibilities';
+import { animateMarquee } from 'src/site/animate/marquee';
 import {
   animateNavDropDownOnResponsive,
   animateNavOnResponsive,
-} from 'src/site/animate/animateNav';
-import { animateSliderC1OnResponsive } from 'src/site/animate/animatePossibilities';
-import { revealElements } from 'src/site/animate/animateReveal';
-import { animateMarqueeReviews } from 'src/site/animate/animateSlider';
+} from 'src/site/animate/navigation';
 // Importation des fonctions d'affichage
 import { displayJoinAccess } from 'src/site/display/displayJoinAccess';
 import { setupScrollBehavior } from 'src/site/display/displayPage';
@@ -50,6 +50,7 @@ window.Webflow ||= [];
 window.Webflow.push(() => {
   // --- --- Gestion des Vidéos HLS --- ---
   initBunnyPlayer();
+  initBunnyPlayerBackground();
 
   // --- --- Gestion des Components Webflow --- ---
   toggleModalV3();
@@ -64,6 +65,7 @@ window.Webflow.push(() => {
   // ⚠️ fillUserLocalDatas();
 
   // --- --- Gestion des Animations --- ---
+  animateMarquee();
   animateFormLabels();
   sliderReviewsCards();
   sliderReviewsMarquee();
@@ -84,7 +86,6 @@ window.Webflow.push(() => {
   animateNavOnResponsive();
   animateNavDropDownOnResponsive();
   animateSliderC1OnResponsive();
-  animateMarqueeReviews();
 
   // --- --- Fonctionnalités liées à Webflow Staging --- ---
   if (window.location.href.includes('site-initweb-v3')) {

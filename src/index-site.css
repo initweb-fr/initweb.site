@@ -10,4 +10,5 @@
 @import url('./styles/site/components/tabs.css');
 @import url('./styles/site/components/forms.css');
 @import url('./styles/site/components/sliders.css');
-@import url('./styles/--global/components/video.css');
+@import url('./styles/--global/components/video/video-site.css');
+@import url('./styles/--global/components/video/video-background.css');

@@ -1,3 +1,5 @@
+
+
 /* Animation */
 [data-bunny-player-init] :is(.bunny-player__placeholder, .bunny-player__dark, .bunny-player__playpause, .bunny-player__loading) {
     transition: opacity 0.3s linear, visibility 0.3s linear;
